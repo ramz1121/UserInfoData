@@ -1,7 +1,8 @@
-package com.example.userInfodata
+package com.example.userInfodata.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.userInfodata.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -14,5 +14,5 @@ class UserInfoApplication : Application() {
 
     }
 
-   
+
 }

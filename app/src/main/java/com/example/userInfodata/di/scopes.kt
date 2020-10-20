@@ -1,4 +1,4 @@
-package com.mindorks.bootcamp.instagram.di
+package com.example.userInfodata.di
 
 import javax.inject.Scope
 

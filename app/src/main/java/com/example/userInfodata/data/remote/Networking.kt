@@ -25,11 +25,11 @@ object Networking {
             .client(
                 OkHttpClient.Builder()
                     .cache(Cache(cacheDir, cacheSize))
-                    .addInterceptor(HttpLoggingInterceptor()
+                    /*.addInterceptor(HttpLoggingInterceptor()
                         .apply {
                             level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
                             else HttpLoggingInterceptor.Level.NONE
-                        })
+                        })*/
                     .readTimeout(NETWORK_CALL_TIMEOUT.toLong(), TimeUnit.SECONDS)
                     .writeTimeout(NETWORK_CALL_TIMEOUT.toLong(), TimeUnit.SECONDS)
                     .build()

@@ -24,6 +24,7 @@ class AlbumItemViewModel @Inject constructor(
     val id: LiveData<Int> = Transformations.map(data) { it.id }
     val thumbnailUrl: LiveData<String> = Transformations.map(data) { it.thumbnailUrl }
     val title: LiveData<String> = Transformations.map(data) { it.title }
+    val url: LiveData<String> = Transformations.map(data) { it.url }
 
     fun onItemClick(position: Int) {
 

@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.userInfodata.data.repository.UserRepository
 import com.example.userInfodata.ui.album.AlbumViewModel
+import com.example.userInfodata.ui.album.adapter.AlbumItemViewHolder
+import com.example.userInfodata.ui.album.adapter.AlbumsListAdapter
 import com.example.userInfodata.ui.base.BaseActivity
 import com.example.userInfodata.ui.main.MainViewModel
 import com.example.userInfodata.ui.main.adapter.UserListAdapter
@@ -33,7 +35,7 @@ class ActivityModule(private val activity: BaseActivity<*>) {
         }).get(MainViewModel::class.java)
 
     @Provides
-    fun provideSearchAdapter() = UserListAdapter(activity.lifecycle, ArrayList())
+    fun provideUserListAdapter() = UserListAdapter(activity.lifecycle, ArrayList())
 
     @Provides
     fun provideAlbumViewModel(
@@ -46,5 +48,8 @@ class ActivityModule(private val activity: BaseActivity<*>) {
             AlbumViewModel(schedulerProvider, compositeDisposable, networkHelper, userRepository)
             //this lambda creates and return SplashViewModel
         }).get(AlbumViewModel::class.java)
+
+    @Provides
+    fun provideAlbumsListAdapter() = AlbumsListAdapter(activity.lifecycle, ArrayList())
 
 }

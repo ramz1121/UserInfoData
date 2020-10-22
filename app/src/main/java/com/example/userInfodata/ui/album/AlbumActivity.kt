@@ -1,10 +1,7 @@
-package com.example.userInfodata.ui.main
+package com.example.userInfodata.ui.album
 
-import android.opengl.Visibility
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.userInfodata.R
@@ -14,7 +11,7 @@ import com.example.userInfodata.ui.main.adapter.UserListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class MainActivity : BaseActivity<MainViewModel>() {
+class AlbumActivity: BaseActivity<AlbumViewModel>() {
     @Inject
     lateinit var linearLayoutManager: LinearLayoutManager
 
@@ -24,7 +21,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
     override fun provideLayoutId(): Int = R.layout.activity_main
 
     override fun injectDependencies(activityComponent: ActivityComponent) {
-       activityComponent.inject(this)
+        activityComponent.inject(this)
     }
 
     override fun setupView(savedInstanceState: Bundle?) {
@@ -39,16 +36,12 @@ class MainActivity : BaseActivity<MainViewModel>() {
         mainRecycleview.adapter = userListAdapter
         toolbar_title.setText(R.string.app_name)
         userListAdapter.clear()
-        viewModel.getUserList()
+
     }
 
     override fun setupObservers() {
         super.setupObservers()
-        viewModel.userList.observe(this, Observer {
 
-            it?.run { userListAdapter.appendData(this) }
-            progressBar.visibility= View.GONE
-        })
 
     }
 }

@@ -2,6 +2,7 @@ package com.example.userInfodata.di.component
 
 import com.example.userInfodata.di.ViewModelScope
 import com.example.userInfodata.di.module.ViewHolderModule
+import com.example.userInfodata.ui.main.adapter.UserInfoItemViewHolder
 import dagger.Component
 
 @ViewModelScope
@@ -11,5 +12,5 @@ import dagger.Component
 )
 interface ViewHolderComponent {
 
-
+    fun inject(viewHolder: UserInfoItemViewHolder)
 }

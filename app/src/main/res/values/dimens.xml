@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding">14dp</dimen>
+    <dimen name="textSize">16dp</dimen>
+    <dimen name="paddingXS">5dp</dimen>
+    <dimen name="imageWidth">100dp</dimen>
+    <dimen name="imageHeight">100dp</dimen>
+    <dimen name="textSizeLarge">18sp</dimen>
+</resources>

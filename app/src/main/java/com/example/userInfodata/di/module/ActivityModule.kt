@@ -2,9 +2,8 @@ package com.example.userInfodata.di.module
 
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.userInfodata.data.repository.UserRepository
+import com.example.userInfodata.data.repository.ApiHelperImpl
 import com.example.userInfodata.ui.album.AlbumViewModel
-import com.example.userInfodata.ui.album.adapter.AlbumItemViewHolder
 import com.example.userInfodata.ui.album.adapter.AlbumsListAdapter
 import com.example.userInfodata.ui.base.BaseActivity
 import com.example.userInfodata.ui.fullimage.FullImageViewModel
@@ -28,7 +27,7 @@ class ActivityModule(private val activity: BaseActivity<*>) {
         schedulerProvider: SchedulerProvider,
         compositeDisposable: CompositeDisposable,
         networkHelper: NetworkHelper,
-        userRepository: UserRepository
+        userRepository: ApiHelperImpl
     ): MainViewModel = ViewModelProviders.of(
         activity, ViewModelProviderFactory(MainViewModel::class) {
             MainViewModel(schedulerProvider, compositeDisposable, networkHelper, userRepository)
@@ -43,7 +42,7 @@ class ActivityModule(private val activity: BaseActivity<*>) {
         schedulerProvider: SchedulerProvider,
         compositeDisposable: CompositeDisposable,
         networkHelper: NetworkHelper,
-        userRepository: UserRepository
+        userRepository: ApiHelperImpl
     ): AlbumViewModel = ViewModelProviders.of(
         activity, ViewModelProviderFactory(AlbumViewModel::class) {
             AlbumViewModel(schedulerProvider, compositeDisposable, networkHelper, userRepository)
@@ -54,7 +53,7 @@ class ActivityModule(private val activity: BaseActivity<*>) {
         schedulerProvider: SchedulerProvider,
         compositeDisposable: CompositeDisposable,
         networkHelper: NetworkHelper,
-        userRepository: UserRepository
+        userRepository: ApiHelperImpl
     ): FullImageViewModel = ViewModelProviders.of(
         activity, ViewModelProviderFactory(FullImageViewModel::class) {
             FullImageViewModel(schedulerProvider, compositeDisposable, networkHelper, userRepository)

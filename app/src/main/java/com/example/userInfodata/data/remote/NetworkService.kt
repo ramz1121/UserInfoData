@@ -12,5 +12,5 @@ interface NetworkService {
     fun getUserList(): Single<List<UserInfo>>
 
     @GET(Endpoints.Photos)
-    fun getAlbums():Single<List<UserAlbums>>
+    suspend fun getAlbums():List<UserAlbums>
 }

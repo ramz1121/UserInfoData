@@ -2,6 +2,7 @@ package com.example.userInfodata.ui.album
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +12,7 @@ import com.example.userInfodata.di.component.ActivityComponent
 import com.example.userInfodata.ui.album.adapter.AlbumsListAdapter
 import com.example.userInfodata.ui.base.BaseActivity
 import com.example.userInfodata.ui.main.adapter.UserListAdapter
+import com.example.userInfodata.utils.common.Status
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -23,7 +25,7 @@ class AlbumActivity : BaseActivity<AlbumViewModel>() {
 
     private var userId=0
 
-    override fun provideLayoutId(): Int = R.layout.activity_main
+    override fun provideLayoutId(): Int = R.layout.activity_album
 
     override fun injectDependencies(activityComponent: ActivityComponent) {
         activityComponent.inject(this)
@@ -42,15 +44,32 @@ class AlbumActivity : BaseActivity<AlbumViewModel>() {
         )
         mainRecycleview.adapter = albumListAdapter
         albumListAdapter.clear()
-        viewModel.getUserAlbums()
     }
 
     override fun setupObservers() {
         super.setupObservers()
-        viewModel.userAlbums.observe(this, Observer {
+        viewModel. getAlbum().observe(this, Observer {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    progressBar.visibility = View.GONE
+                    it.data?.let { albums -> retrieveList(albums) }
+                    mainRecycleview.visibility = View.VISIBLE
+                }
+                Status.LOADING -> {
+                    progressBar.visibility = View.VISIBLE
+                    //mainRecycleview.visibility = View.GONE
+                }
+                Status.ERROR -> {
+                    //Handle Error
+                    progressBar.visibility = View.GONE
+                    Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+                }
+            }
+        })
+        /*viewModel.userAlbums.observe(this, Observer {
             it?.run { retrieveList(it) }
             progressBar.visibility = View.GONE
-        })
+        })*/
 
 
     }

@@ -2,10 +2,9 @@ package com.example.userInfodata.di.component
 
 import android.app.Application
 import android.content.Context
-import android.content.SharedPreferences
 import com.example.userInfodata.UserInfoApplication
 import com.example.userInfodata.data.remote.NetworkService
-import com.example.userInfodata.data.repository.UserRepository
+import com.example.userInfodata.data.repository.ApiHelperImpl
 import com.example.userInfodata.di.ApplicationContext
 import com.example.userInfodata.di.module.ApplicationModule
 import com.example.userInfodata.utils.network.NetworkHelper
@@ -40,7 +39,7 @@ interface ApplicationComponent{
      * So, Dagger will be able to create an instance of UserRepository by its own using constructor injection
      *---------------------------------------------------------------------------------
      */
-    fun getUserRepository(): UserRepository
+    fun getUserRepository(): ApiHelperImpl
 
     fun getSchedulerProvider(): SchedulerProvider
 

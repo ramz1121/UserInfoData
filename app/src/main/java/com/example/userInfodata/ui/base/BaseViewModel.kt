@@ -29,7 +29,7 @@ abstract class BaseViewModel(
         if (networkHelper.isNetworkConnected()) {
             true
         } else {
-            messageStringId.postValue(Resource.error(R.string.network_connection_error))
+            messageStringId.postValue(Resource.error(null,R.string.network_connection_error))
             false
         }
 
@@ -39,16 +39,16 @@ abstract class BaseViewModel(
         err?.let {
             networkHelper.castToNetworkError(it).run {
                 when (status) {
-                    -1 -> messageStringId.postValue(Resource.error(R.string.network_default_error))
-                    0 -> messageStringId.postValue(Resource.error(R.string.server_connection_error))
+                    -1 -> messageStringId.postValue(Resource.error(null,R.string.network_default_error))
+                    0 -> messageStringId.postValue(Resource.error(null,R.string.server_connection_error))
                     HttpsURLConnection.HTTP_UNAUTHORIZED -> {
                         forcedLogoutUser()
-                        messageStringId.postValue(Resource.error(R.string.server_connection_error))
+                        messageStringId.postValue(Resource.error(null,R.string.server_connection_error))
                     }
                     HttpsURLConnection.HTTP_INTERNAL_ERROR ->
-                        messageStringId.postValue(Resource.error(R.string.network_internal_error))
+                        messageStringId.postValue(Resource.error(null,R.string.network_internal_error))
                     HttpsURLConnection.HTTP_UNAVAILABLE ->
-                        messageStringId.postValue(Resource.error(R.string.network_server_not_available))
+                        messageStringId.postValue(Resource.error(null,R.string.network_server_not_available))
                     else -> messageString.postValue(Resource.error(message))
                 }
             }

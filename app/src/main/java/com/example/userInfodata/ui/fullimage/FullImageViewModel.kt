@@ -1,5 +1,6 @@
 package com.example.userInfodata.ui.fullimage
 
+import com.example.userInfodata.data.repository.ApiHelperImpl
 import com.example.userInfodata.data.repository.UserRepository
 import com.example.userInfodata.ui.base.BaseViewModel
 import com.example.userInfodata.utils.network.NetworkHelper

@@ -3,6 +3,7 @@ package om.example.userInfodata.ui.main
 import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.IdlingResource
 import androidx.test.espresso.action.ViewActions.click
@@ -63,7 +64,7 @@ class MainActivityTest {
     }
 
     @Test
-    fun test_SelectListItem_isDetailFragmentVisible() {
+    fun test_SelectListItem_isDetailActivityVisible() {
         main.launchActivity(Intent(component.getContext(), MainActivity::class.java))
         onView(withId(R.id.mainRecycleview)).perform(
             actionOnItemAtPosition<UserInfoItemViewHolder>(
@@ -72,4 +73,17 @@ class MainActivityTest {
             )
         )
     }
+    @Test
+    fun check_backNavigation_toMainActivity() {
+        main.launchActivity(Intent(component.getContext(), MainActivity::class.java))
+        onView(withId(R.id.mainRecycleview)).perform(
+            actionOnItemAtPosition<UserInfoItemViewHolder>(
+                LIST_ITEM_IN_TEST,
+                click()
+            )
+        )
+        pressBack()
+        onView(withId(R.id.mainRecycleview)).check(matches(isDisplayed()))
+    }
+
 }

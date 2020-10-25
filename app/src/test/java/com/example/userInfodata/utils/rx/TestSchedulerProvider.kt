@@ -1,4 +1,4 @@
-package com.googlemaps.landmarkremark.utils.rx
+package com.example.userInfodata.utils.rx
 
 import com.example.userInfodata.utils.rx.SchedulerProvider
 import io.reactivex.Scheduler

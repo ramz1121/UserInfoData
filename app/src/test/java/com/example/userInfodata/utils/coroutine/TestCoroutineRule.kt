@@ -1,4 +1,4 @@
-package com.googlemaps.landmarkremark.utils.coroutine
+package com.example.userInfodata.utils.coroutine
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

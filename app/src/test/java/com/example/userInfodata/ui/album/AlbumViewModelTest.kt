@@ -7,9 +7,9 @@ import com.example.userInfodata.R
 import com.example.userInfodata.data.repository.ApiHelperImpl
 import com.example.userInfodata.data.repository.UserRepository
 import com.example.userInfodata.utils.common.Resource
+import com.example.userInfodata.utils.coroutine.TestCoroutineRule
 import com.example.userInfodata.utils.network.NetworkHelper
 import com.example.userInfodata.utils.rx.SchedulerProvider
-import com.googlemaps.landmarkremark.utils.coroutine.TestCoroutineRule
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Rule

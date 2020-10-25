@@ -9,8 +9,7 @@ import com.example.userInfodata.data.repository.UserRepository
 import com.example.userInfodata.ui.album.AlbumViewModel
 import com.example.userInfodata.utils.common.Resource
 import com.example.userInfodata.utils.network.NetworkHelper
-import com.example.userInfodata.utils.rx.SchedulerProvider
-import com.googlemaps.landmarkremark.utils.rx.TestSchedulerProvider
+import com.example.userInfodata.utils.rx.TestSchedulerProvider
 import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.TestScheduler
